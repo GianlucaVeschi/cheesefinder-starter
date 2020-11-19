@@ -32,12 +32,15 @@ package com.raywenderlich.android.cheesefinder
 
 import android.text.Editable
 import android.text.TextWatcher
+import android.util.Log
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_cheeses.*
 
 class CheeseActivity : BaseSearchActivity() {
+
+    private val TAG = "CheeseActivity"
 
     override fun onStart() {
         super.onStart()
@@ -93,6 +96,7 @@ class CheeseActivity : BaseSearchActivity() {
                 // 4
                 override fun onTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) {
                     s?.toString()?.let { emitter.onNext(it) }
+                    Log.d(TAG, "onTextChanged: typed $s" )
                 }
             }
 
@@ -106,7 +110,7 @@ class CheeseActivity : BaseSearchActivity() {
         }
 
         // 7
-        return textChangeObservable
+        return textChangeObservable.filter { it.length >= 2 }
     }
 
 }
