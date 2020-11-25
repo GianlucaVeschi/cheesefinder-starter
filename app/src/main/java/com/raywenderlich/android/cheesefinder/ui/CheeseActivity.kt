@@ -29,7 +29,7 @@
  */
 //Test Update
 
-package com.raywenderlich.android.cheesefinder
+package com.raywenderlich.android.cheesefinder.ui
 
 import android.text.Editable
 import android.text.TextWatcher
@@ -59,6 +59,7 @@ class CheeseActivity : BaseSearchActivity() {
                 .toFlowable(BackpressureStrategy.BUFFER) // Convert into a flowable
 
         val searchTextFlowable = Flowable.merge<String>(buttonClickStream, textChangeStream)
+
         disposable = searchTextFlowable
                 // 1
                 .observeOn(AndroidSchedulers.mainThread())

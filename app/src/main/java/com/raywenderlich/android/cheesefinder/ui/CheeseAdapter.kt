@@ -28,15 +28,16 @@
  * THE SOFTWARE.
  */
 
-package com.raywenderlich.android.cheesefinder
+package com.raywenderlich.android.cheesefinder.ui
 
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.recyclerview.widget.RecyclerView
+import com.raywenderlich.android.cheesefinder.R
 import com.raywenderlich.android.cheesefinder.database.Cheese
 import com.raywenderlich.android.cheesefinder.database.CheeseDatabase
-import com.raywenderlich.android.cheesefinder.ui.CheckableImageView
+import com.raywenderlich.android.cheesefinder.util.CheckableImageView
 import io.reactivex.Maybe
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

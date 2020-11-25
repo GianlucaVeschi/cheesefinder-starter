@@ -1,4 +1,4 @@
-package com.raywenderlich.android.cheesefinder
+package com.raywenderlich.android.cheesefinder.ui
 /*
  * Copyright (c) 2019 Razeware LLC
  *
@@ -35,6 +35,7 @@ import android.os.Handler
 import android.view.Window
 import android.view.WindowManager
 import androidx.appcompat.app.AppCompatActivity
+import com.raywenderlich.android.cheesefinder.R
 
 /**
  * Splash Screen with the app icon and name at the center, this is also the launch screen and

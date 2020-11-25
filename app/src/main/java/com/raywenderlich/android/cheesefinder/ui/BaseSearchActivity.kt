@@ -28,7 +28,7 @@
  * THE SOFTWARE.
  */
 
-package com.raywenderlich.android.cheesefinder
+package com.raywenderlich.android.cheesefinder.ui
 
 import android.content.Context
 import android.os.Bundle
@@ -36,9 +36,11 @@ import androidx.appcompat.app.AppCompatActivity
 import android.view.View.GONE
 import android.view.View.VISIBLE
 import android.widget.Toast
+import com.raywenderlich.android.cheesefinder.R
 import com.raywenderlich.android.cheesefinder.database.Cheese
 import com.raywenderlich.android.cheesefinder.database.CheeseDatabase
 import com.raywenderlich.android.cheesefinder.database.CheeseUtil
+import com.raywenderlich.android.cheesefinder.util.CheeseSearchEngine
 import io.reactivex.*
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable

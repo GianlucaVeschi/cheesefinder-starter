@@ -20,7 +20,7 @@
     android:paddingEnd="?android:attr/listPreferredItemPaddingEnd"
     android:textAppearance="?android:attr/textAppearanceListItemSmall" />
 
-  <com.raywenderlich.android.cheesefinder.ui.CheckableImageView
+  <com.raywenderlich.android.cheesefinder.util.CheckableImageView
     android:id="@+id/imageFavorite"
     app:layout_constraintTop_toTopOf="parent"
     app:layout_constraintBottom_toBottomOf="parent"
