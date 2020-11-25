@@ -38,6 +38,7 @@ import io.reactivex.BackpressureStrategy
 import io.reactivex.Flowable
 import io.reactivex.Observable
 import io.reactivex.android.schedulers.AndroidSchedulers
+import io.reactivex.disposables.Disposable
 import io.reactivex.schedulers.Schedulers
 import kotlinx.android.synthetic.main.activity_cheeses.*
 import java.util.concurrent.TimeUnit
@@ -45,20 +46,20 @@ import java.util.concurrent.TimeUnit
 class CheeseActivity : BaseSearchActivity() {
 
     private val TAG = "CheeseActivity"
+    private lateinit var disposable: Disposable
+
 
     override fun onStart() {
         super.onStart()
 
         val buttonClickStream = createButtonClickObservable()
-                .toFlowable(BackpressureStrategy.LATEST) // Convert the button click stream into a flowable
+                .toFlowable(BackpressureStrategy.LATEST) // Convert into a flowable
 
         val textChangeStream = createTextChangeObservable()
-                .toFlowable(BackpressureStrategy.BUFFER) // Convert the text change stream into a flowable
+                .toFlowable(BackpressureStrategy.BUFFER) // Convert into a flowable
 
         val searchTextFlowable = Flowable.merge<String>(buttonClickStream, textChangeStream)
-
-
-        searchTextFlowable
+        disposable = searchTextFlowable
                 // 1
                 .observeOn(AndroidSchedulers.mainThread())
                 // 2
@@ -72,6 +73,15 @@ class CheeseActivity : BaseSearchActivity() {
                     showResult(it)
                 }
     }
+
+    @Override
+    override fun onStop() {
+        super.onStop()
+        if (!disposable.isDisposed) {
+            disposable.dispose()
+        }
+    }
+
 
 
     // 1
