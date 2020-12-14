@@ -45,7 +45,7 @@ import java.util.concurrent.TimeUnit
 
 class CheeseActivity : BaseSearchActivity() {
 
-    private val TAG = "CheeseActivity GIANLUCA"
+    private val TAG = "CheeseActivity"
     private lateinit var disposable: Disposable
 
 
